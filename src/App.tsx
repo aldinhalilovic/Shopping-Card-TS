@@ -9,11 +9,11 @@ function App() {
          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/first/:num" element={<Shop />} />
-            <Route path="/second/:num" element={<Shop />} />
-            <Route path="/third/:num" element={<Shop />} />
-            <Route path="/fourth/:num" element={<Shop />} />
-            <Route path="/fifth/:num" element={<Shop />} />
+            <Route path="/first" element={<Shop />} />
+            <Route path="/second" element={<Shop />} />
+            <Route path="/third" element={<Shop />} />
+            <Route path="/fourth" element={<Shop />} />
+            <Route path="/fifth" element={<Shop />} />
          </Routes>
       </div>
    );

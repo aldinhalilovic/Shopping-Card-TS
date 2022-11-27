@@ -37,7 +37,7 @@ const Home: React.FC = () => {
                   alignItems: 'center',
                }}
             >
-               <button onClick={() => navigate('/first/0')}>First</button>
+               <button onClick={() => navigate('/first?skip=0')}>First</button>
             </div>
             <div
                style={{
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
                   alignItems: 'center',
                }}
             >
-               <button onClick={() => navigate('/second/20')}>Second</button>
+               <button onClick={() => navigate('/second?skip=20')}>Second</button>
             </div>
             <div
                style={{
@@ -61,7 +61,7 @@ const Home: React.FC = () => {
                   alignItems: 'center',
                }}
             >
-               <button onClick={() => navigate('/third/40')}>Third</button>
+               <button onClick={() => navigate('/third?skip=40')}>Third</button>
             </div>
             <div
                style={{
@@ -73,7 +73,7 @@ const Home: React.FC = () => {
                   alignItems: 'center',
                }}
             >
-               <button onClick={() => navigate('/fourth/60')}>Fourth</button>
+               <button onClick={() => navigate('/fourth?skip=60')}>Fourth</button>
             </div>
             <div
                style={{
@@ -85,7 +85,7 @@ const Home: React.FC = () => {
                   alignItems: 'center',
                }}
             >
-               <button onClick={() => navigate('/fifth/80')}>Fifth</button>
+               <button onClick={() => navigate('/fifth?skip=80')}>Fifth</button>
             </div>
          </div>
       </div>
