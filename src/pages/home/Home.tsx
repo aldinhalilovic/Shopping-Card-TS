@@ -1,25 +1,19 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ShoppingCartContext } from '../../service/ShoppingCartContext';
+import { dataAction } from '../../store/dataslice';
+import { useAppDispatch } from '../../store/hooks';
 
 const Home: React.FC = () => {
-   const context = useContext(ShoppingCartContext);
    const navigate = useNavigate();
-   const navigateHandle = () => {
-      navigate('/cart');
-   };
+
+   const dispatch = useAppDispatch();
    useEffect(() => {
-      context?.setData({
-         limit: 0,
-         products: [],
-         skip: 0,
-         total: 0,
-      });
+      dispatch(dataAction.clearData());
    }, []);
+
    return (
       <div>
-         <h1>Welcome to my Home Page</h1>
-         <button onClick={navigateHandle}>Go to Cart</button>
+         <h1>HOME</h1>
          <div
             style={{
                display: 'flex',
