@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { fetchCategoryProducts, fetchProductCategories, fetchStorageProducts } from '../../store/dataslice';
+import ProductCard from '../../components/product/product/Product';
+import { Product } from '../../models/models';
+import { dataAction, fetchCategoryProducts, fetchProductCategories, fetchStorageProducts } from '../../store/dataslice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 const AllProducts = () => {
@@ -7,7 +9,15 @@ const AllProducts = () => {
    const [search, setSearch] = useState<string>('');
    const dispatch = useAppDispatch();
    const storageProducts = useAppSelector((state) => state.products.storageProducts.products);
+   const products = useAppSelector((state) => state.products.cartProduct);
    const categories = useAppSelector((state) => state.products.categories);
+
+   const handleProduct = (product: Product) => dispatch(dataAction.addProduct(product));
+   const removeProduct = (product: Product) => dispatch(dataAction.removeProduct(product));
+
+   const isInCart = (id: number) => {
+      return products.some((prod) => prod.id === id);
+   };
 
    const fetchHandle = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -29,6 +39,7 @@ const AllProducts = () => {
          <div
             style={{
                display: 'flex',
+               flexDirection: 'column',
             }}
          >
             <div>
@@ -49,9 +60,24 @@ const AllProducts = () => {
                   />
                </form>
             </div>
-            <div>
+
+            <div
+               style={{
+                  width: '100%',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexWrap: 'wrap',
+               }}
+            >
                {storageProducts.map((product) => (
-                  <li key={product.id}>{product.title}</li>
+                  <ProductCard
+                     product={product}
+                     isInCart={isInCart(product.id)}
+                     handleProduct={(product: Product) => handleProduct(product)}
+                     removeProduct={(product: Product) => removeProduct(product)}
+                     key={product.id}
+                  />
                ))}
             </div>
          </div>

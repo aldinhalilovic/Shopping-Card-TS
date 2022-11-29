@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import ProductCard from '../../components/product/Product';
+import ProductCard from '../../components/product/product/Product';
 import { Product } from '../../models/models';
 import { dataAction } from '../../store/dataslice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -29,16 +29,25 @@ const Cart: React.FC = () => {
    return (
       <div>
          <h1>Cart Page</h1>
-         <button onClick={handleNavigate}>Go to Home Page</button>
-         {cartProducts.map((product) => (
-            <ProductCard
-               product={product}
-               key={product.id}
-               handleProduct={(product: Product) => handleProduct(product)}
-               removeProduct={(product: Product) => removeProduct(product)}
-               isInCart={isInCart(product.id)}
-            />
-         ))}
+         <br />
+         <br />
+         <br />
+
+         <div
+            style={{
+               display: 'flex',
+            }}
+         >
+            {cartProducts.map((product) => (
+               <ProductCard
+                  product={product}
+                  key={product.id}
+                  handleProduct={(product: Product) => handleProduct(product)}
+                  removeProduct={(product: Product) => removeProduct(product)}
+                  isInCart={isInCart(product.id)}
+               />
+            ))}
+         </div>
       </div>
    );
 };

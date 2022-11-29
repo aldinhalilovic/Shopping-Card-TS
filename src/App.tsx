@@ -7,7 +7,11 @@ import Shop from './pages/markets/Shop';
 
 function App() {
    return (
-      <div>
+      <div
+         style={{
+            backgroundColor: '#ccc',
+         }}
+      >
          <Navbar />
          <Routes>
             <Route path="/" element={<Home />} />

@@ -5,12 +5,15 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
+import { MantineProvider } from '@mantine/core';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
    <BrowserRouter>
       <Provider store={store}>
-         <App />
+         <MantineProvider withGlobalStyles withNormalizeCSS>
+            <App />
+         </MantineProvider>
       </Provider>
    </BrowserRouter>,
 );

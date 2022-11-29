@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import ProductCard from '../../components/product/Product';
+import ProductCard from '../../components/product/product/Product';
 import { Product } from '../../models/models';
 import { dataAction, fetchMarketProducts } from '../../store/dataslice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';

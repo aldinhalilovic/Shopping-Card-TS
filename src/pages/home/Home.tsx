@@ -12,7 +12,11 @@ const Home: React.FC = () => {
    }, []);
 
    return (
-      <div>
+      <div
+         style={{
+            height: '100vh',
+         }}
+      >
          <h1>HOME</h1>
          <div
             style={{
