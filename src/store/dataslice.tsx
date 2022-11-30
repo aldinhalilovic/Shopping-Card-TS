@@ -1,9 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { Product, Store } from '../models/models';
 import instance from '../service/instance';
-
-const BASE_URL = ' https://dummyjson.com/products';
 
 interface iState {
    data: Store;
@@ -33,7 +30,7 @@ const fetchProductCategories = createAsyncThunk('categories', async () => {
    return response.data;
 });
 
-const fetchCategoryProducts = createAsyncThunk('products from categories', async (categorie: string) => {
+const fetchCategoryProducts = createAsyncThunk('products from categories', async (categorie: any) => {
    const response = await instance({
       url: `/category/${categorie}`,
    });

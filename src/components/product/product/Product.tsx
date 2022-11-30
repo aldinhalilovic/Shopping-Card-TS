@@ -56,7 +56,9 @@ export default function ProductCard(props: ProductCardProps) {
                <Text size="lg" weight={500} style={{ width: '180px' }}>
                   {product.title}
                </Text>
-               <Badge size="sm">-{product.discountPercentage}%</Badge>
+               <Badge size="sm" color="dark">
+                  -{product.discountPercentage}%
+               </Badge>
             </Group>
             <Text size="md" mt="xs" weight={700}>
                {product.price}€
@@ -74,11 +76,17 @@ export default function ProductCard(props: ProductCardProps) {
 
          <Group mt="xs">
             {!isInCart ? (
-               <Button radius="md" style={{ flex: 1 }} onClick={() => handleProduct(product)}>
+               <Button radius="md" style={{ flex: 1 }} onClick={() => handleProduct(product)} color="dark">
                   Add to Cart
                </Button>
             ) : (
-               <Button radius="md" style={{ flex: 1 }} onClick={() => removeProduct(product)}>
+               <Button
+                  radius="md"
+                  style={{ flex: 1 }}
+                  onClick={() => removeProduct(product)}
+                  color="dark"
+                  variant="light"
+               >
                   Remove from cart
                </Button>
             )}

@@ -14,7 +14,7 @@ const Home: React.FC = () => {
    return (
       <div
          style={{
-            height: '100vh',
+            height: '90vh',
          }}
       >
          <h1>HOME</h1>
@@ -77,7 +77,7 @@ const Home: React.FC = () => {
                style={{
                   width: '300px',
                   height: '300px',
-                  backgroundColor: '#ccc',
+                  backgroundColor: 'white',
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',

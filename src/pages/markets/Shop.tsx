@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import ProductCard from '../../components/product/product/Product';
 import { Product } from '../../models/models';
 import { dataAction, fetchMarketProducts } from '../../store/dataslice';
@@ -7,8 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import './Shop.css';
 
 const Shop = () => {
-   const [searchParams, setSearchParams] = useSearchParams();
-   const navigate = useNavigate();
+   const [searchParams] = useSearchParams();
    const dispatch = useAppDispatch();
 
    const data = useAppSelector((state) => state.products.data);
@@ -33,9 +32,14 @@ const Shop = () => {
    }, []);
    return (
       <div className="main">
-         <h1>MARKET</h1>
          {products.length === 0 ? (
-            <div className="content">Loading...</div>
+            <div className="content">
+               <div className="lds-facebook">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+               </div>
+            </div>
          ) : (
             <div className="content">
                {products.map((product) => (

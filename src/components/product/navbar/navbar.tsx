@@ -8,6 +8,7 @@ const Navbar = () => {
          style={{
             width: '100%',
             height: '10vh',
+            borderBottom: '2px solid black',
          }}
       >
          <div
