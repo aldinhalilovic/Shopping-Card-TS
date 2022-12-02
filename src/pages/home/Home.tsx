@@ -15,9 +15,9 @@ const Home: React.FC = () => {
       <div
          style={{
             height: '90vh',
+            overflowY: 'hidden',
          }}
       >
-         <h1>HOME</h1>
          <div
             style={{
                display: 'flex',
@@ -25,11 +25,21 @@ const Home: React.FC = () => {
                alignItems: 'center',
             }}
          >
+            <h1>Welcome to store!</h1>
+         </div>
+         <div
+            style={{
+               // backgroundColor: 'black',
+               height: '100%',
+               display: 'flex',
+               justifyContent: 'space-evenly',
+               alignItems: 'center',
+            }}
+         >
             <div
                style={{
                   width: '300px',
                   height: '300px',
-                  backgroundColor: 'blue',
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
@@ -41,7 +51,6 @@ const Home: React.FC = () => {
                style={{
                   width: '300px',
                   height: '300px',
-                  backgroundColor: 'red',
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
@@ -53,7 +62,6 @@ const Home: React.FC = () => {
                style={{
                   width: '300px',
                   height: '300px',
-                  backgroundColor: 'green',
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
@@ -65,7 +73,6 @@ const Home: React.FC = () => {
                style={{
                   width: '300px',
                   height: '300px',
-                  backgroundColor: 'yellow',
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
@@ -77,7 +84,6 @@ const Home: React.FC = () => {
                style={{
                   width: '300px',
                   height: '300px',
-                  backgroundColor: 'white',
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',

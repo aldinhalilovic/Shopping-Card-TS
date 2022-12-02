@@ -53,14 +53,14 @@ export default function ProductCard(props: ProductCardProps) {
 
          <Card.Section className={classes.section} mt="md">
             <Group position="apart" className={classes.title}>
-               <Text size="lg" weight={500} style={{ width: '180px' }}>
+               <Text size="lg" weight={500} style={{ width: '170px', lineHeight: '20px' }}>
                   {product.title}
                </Text>
                <Badge size="sm" color="dark">
                   -{product.discountPercentage}%
                </Badge>
             </Group>
-            <Text size="md" mt="xs" weight={700}>
+            <Text size="lg" mt="xs" weight={700}>
                {product.price}€
             </Text>
          </Card.Section>

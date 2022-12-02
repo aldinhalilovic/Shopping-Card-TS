@@ -3,16 +3,17 @@ import React, { useEffect, useState } from 'react';
 import ProductCard from '../../components/product/product/Product';
 import { Product } from '../../models/models';
 import { dataAction, fetchCategoryProducts, fetchProductCategories, fetchStorageProducts } from '../../store/dataslice';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useAppDispatch, useAppSelector, useDebounce } from '../../store/hooks';
 import './style.css';
 
 const AllProducts = () => {
    const [category, setCategory] = useState<string[]>([]);
    const [search, setSearch] = useState<string>('');
-   const dispatch = useAppDispatch();
+   const debouncedValue = useDebounce<string>(search, 100);
    const storageProducts = useAppSelector((state) => state.products.storageProducts.products);
    const products = useAppSelector((state) => state.products.cartProduct);
    const categories = useAppSelector((state) => state.products.categories);
+   const dispatch = useAppDispatch();
 
    const handleProduct = (product: Product) => dispatch(dataAction.addProduct(product));
    const removeProduct = (product: Product) => dispatch(dataAction.removeProduct(product));
@@ -24,7 +25,7 @@ const AllProducts = () => {
    useEffect(() => {
       dispatch(fetchStorageProducts(search));
       dispatch(fetchProductCategories());
-   }, [search]);
+   }, [debouncedValue]);
 
    useEffect(() => {
       console.log(category);
@@ -95,6 +96,7 @@ const AllProducts = () => {
                      >
                         <MultiSelect
                            radius="md"
+                           size="md"
                            data={categories.map((el: string) => el)}
                            value={category}
                            onChange={setCategory}
