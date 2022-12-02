@@ -5,6 +5,7 @@ import ProductCard from '../../components/product/product/Product';
 import { Product } from '../../models/models';
 import { dataAction } from '../../store/dataslice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import './cart.css';
 
 const Cart: React.FC = () => {
    const navigate = useNavigate();
@@ -24,48 +25,17 @@ const Cart: React.FC = () => {
    };
 
    return (
-      <div
-         style={{
-            height: '90vh',
-            display: 'flex',
-            flexDirection: 'column',
-         }}
-      >
-         <div
-            style={{
-               // minHeight: '90vh',
-               width: '100%',
-               display: 'flex',
-               justifyContent: 'center',
-               alignItems: 'center',
-            }}
-         >
+      <div className="cart">
+         <div className="flex div">
             {cartProducts.length === 0 ? (
-               <div
-                  style={{
-                     height: '40vh',
-                     display: 'flex',
-                     flexDirection: 'column',
-                     justifyContent: 'space-evenly',
-                     alignItems: 'center',
-                  }}
-               >
+               <div className="cart-content">
                   <h1>Your cart is empty, please add something</h1>
                   <Button color={'dark'} radius="md" onClick={() => navigate('/')}>
                      Go to markets
                   </Button>
                </div>
             ) : (
-               <div
-                  style={{
-                     width: '100%',
-                     display: 'flex',
-                     justifyContent: 'center',
-                     alignItems: 'center',
-                     flexWrap: 'wrap',
-                     backgroundColor: '#ccc',
-                  }}
-               >
+               <div className="cart-products flex">
                   {cartProducts.map((product) => (
                      <ProductCard
                         product={product}

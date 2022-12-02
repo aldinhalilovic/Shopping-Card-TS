@@ -1,0 +1,23 @@
+.cart {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.div{
+    width: 100%;
+}
+.cart-content{
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cart-products{
+    width: 100%;
+    flex-wrap: wrap;
+    background-color: #ccc;
+}

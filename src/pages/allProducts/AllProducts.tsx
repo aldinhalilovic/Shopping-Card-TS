@@ -28,23 +28,14 @@ const AllProducts = () => {
    }, [debouncedValue]);
 
    useEffect(() => {
-      console.log(category);
       if (category.length === 0) {
          dispatch(fetchStorageProducts(''));
       } else {
          dispatch(fetchCategoryProducts(category));
       }
    }, [category]);
-   console.log('aaa', storageProducts);
    return (
-      <div
-         style={{
-            position: 'absolute',
-            backgroundColor: '#ccc',
-            minWidth: '100%',
-            minHeight: '90vh',
-         }}
-      >
+      <div className="page">
          {storageProducts.length === 0 && !search ? (
             <div
                style={{
@@ -63,11 +54,7 @@ const AllProducts = () => {
          ) : (
             <div>
                <Button
-                  style={{
-                     position: 'sticky',
-                     top: '90%',
-                     left: '95%',
-                  }}
+                  className="button"
                   onClick={() =>
                      window.scroll({
                         top: 0,
@@ -80,20 +67,9 @@ const AllProducts = () => {
                >
                   Up
                </Button>
-               <div
-                  style={{
-                     display: 'flex',
-                     flexDirection: 'column',
-                  }}
-               >
+               <div className="page-content">
                   <div>
-                     <div
-                        style={{
-                           display: 'flex',
-                           justifyContent: 'space-evenly',
-                           alignItems: 'center',
-                        }}
-                     >
+                     <div className="page-forms">
                         <MultiSelect
                            radius="md"
                            size="md"
@@ -119,27 +95,11 @@ const AllProducts = () => {
                      </div>
                   </div>
                   {storageProducts.length === 0 ? (
-                     <div
-                        style={{
-                           height: '50vh',
-                           width: '100%',
-                           display: 'flex',
-                           justifyContent: 'center',
-                           alignItems: 'center',
-                        }}
-                     >
+                     <div className="page-empty flex">
                         <h1>No Such Products...</h1>
                      </div>
                   ) : (
-                     <div
-                        style={{
-                           width: '100%',
-                           display: 'flex',
-                           justifyContent: 'center',
-                           alignItems: 'center',
-                           flexWrap: 'wrap',
-                        }}
-                     >
+                     <div className="page-products flex">
                         {storageProducts.map((product) => (
                            <ProductCard
                               product={product}

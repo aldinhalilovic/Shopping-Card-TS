@@ -1,4 +1,5 @@
 import { Card, Image, Text, Group, Badge, Button, createStyles } from '@mantine/core';
+import toast from 'react-hot-toast';
 import { Product } from '../../../models/models';
 
 const useStyles = createStyles((theme) => ({
@@ -41,6 +42,10 @@ type ProductCardProps = {
    isInCart: boolean;
 };
 
+const toastHandler = () => {
+   toast.success('Successfully added to cart');
+};
+
 export default function ProductCard(props: ProductCardProps) {
    const { classes } = useStyles();
    const { product, handleProduct, removeProduct, isInCart } = props;
@@ -76,7 +81,12 @@ export default function ProductCard(props: ProductCardProps) {
 
          <Group mt="xs">
             {!isInCart ? (
-               <Button radius="md" style={{ flex: 1 }} onClick={() => handleProduct(product)} color="dark">
+               <Button
+                  radius="md"
+                  style={{ flex: 1 }}
+                  onClick={() => (handleProduct(product), toastHandler())}
+                  color="dark"
+               >
                   Add to Cart
                </Button>
             ) : (
