@@ -14,31 +14,32 @@ const Home: React.FC = () => {
 
    return (
       <div className="home">
-         <div className="flex">
+         <div className="flex-column">
             <h1>Welcome to store!</h1>
+            <h1>Pick your path</h1>
          </div>
          <div className="home-content">
             <div className="flex home-markets">
                <div className="flex home-markets-button">
                   <button className="home-buttons" onClick={() => navigate('/first?skip=0')}>
-                     Prva radnja
+                     First Store
                   </button>
                   <button className="home-buttons" onClick={() => navigate('/second?skip=20')}>
-                     Druga radnja
+                     Second Store
                   </button>
                   <button className="home-buttons" onClick={() => navigate('/third?skip=40')}>
-                     Treca radnja
+                     Third Store
                   </button>
                   <button className="home-buttons" onClick={() => navigate('/fourth?skip=60')}>
-                     Cetvrta radnja
+                     Fourth Store
                   </button>
                   <button className="home-buttons" onClick={() => navigate('/fifth?skip=80')}>
-                     Peta radnja
+                     Fifth Store
                   </button>
                </div>
             </div>
             <div className="flex home-markets">
-               <div className="flex home-markets-button" onClick={() => navigate('/products')}>
+               <div className="flex home-markets-product-button" onClick={() => navigate('/products')}>
                   <h1>PRODUCTS</h1>
                </div>
             </div>

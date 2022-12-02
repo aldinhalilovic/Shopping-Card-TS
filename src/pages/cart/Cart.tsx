@@ -31,7 +31,7 @@ const Cart: React.FC = () => {
                <div className="cart-content">
                   <h1>Your cart is empty, please add something</h1>
                   <Button color={'dark'} radius="md" onClick={() => navigate('/')}>
-                     Go to markets
+                     Go to Home
                   </Button>
                </div>
             ) : (

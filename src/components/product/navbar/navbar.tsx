@@ -10,10 +10,13 @@ const Navbar = () => {
                <h1 onClick={() => navigate('/')}>HomePage</h1>
             </div>{' '}
             <div className="buttons">
-               <NavLink to="/cart" className={({ isActive }) => (isActive ? 'activeStyle' : 'staticStyle')}>
+               <NavLink to="/cart" className={({ isActive }) => (isActive ? 'activeStyle flex' : 'staticStyle flex')}>
                   <h1>Cart</h1>
                </NavLink>
-               <NavLink to="/products" className={({ isActive }) => (isActive ? 'activeStyle' : 'staticStyle')}>
+               <NavLink
+                  to="/products"
+                  className={({ isActive }) => (isActive ? 'activeStyle flex' : 'staticStyle flex')}
+               >
                   <h1>Products</h1>
                </NavLink>
             </div>
