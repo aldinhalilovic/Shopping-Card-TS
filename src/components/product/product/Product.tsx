@@ -66,7 +66,7 @@ export default function ProductCard(props: ProductCardProps) {
                </Badge>
             </Group>
             <Text size="lg" mt="xs" weight={700}>
-               {product.price}€
+               {product.price.toLocaleString()}€
             </Text>
          </Card.Section>
 
