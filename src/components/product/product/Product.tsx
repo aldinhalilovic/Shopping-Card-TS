@@ -1,7 +1,8 @@
 import { Card, Image, Text, Group, Badge, Button, createStyles } from '@mantine/core';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { Product } from '../../../models/models';
-
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 const useStyles = createStyles((theme) => ({
    card: {
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
@@ -42,13 +43,18 @@ type ProductCardProps = {
    isInCart: boolean;
 };
 
-const toastHandler = () => {
+const toastHandlerSucces = () => {
    toast.success('Successfully added to cart');
+};
+
+const toastHandlerRemove = () => {
+   toast.error('U removed product from cart');
 };
 
 export default function ProductCard(props: ProductCardProps) {
    const { classes } = useStyles();
    const { product, handleProduct, removeProduct, isInCart } = props;
+   const navigate = useNavigate();
 
    return (
       <Card withBorder radius="md" p="md" className={classes.card}>
@@ -81,19 +87,25 @@ export default function ProductCard(props: ProductCardProps) {
 
          <Group mt="xs">
             {!isInCart ? (
-               <Button
-                  radius="md"
-                  style={{ flex: 1 }}
-                  onClick={() => (handleProduct(product), toastHandler())}
-                  color="dark"
-               >
-                  Add to Cart
-               </Button>
+               <Button.Group w={'100%'}>
+                  <Button
+                     radius="md"
+                     size="sm"
+                     style={{ flex: 1 }}
+                     onClick={() => navigate(`/detail/${product.id}`)}
+                     color="dark"
+                  >
+                     See details
+                  </Button>
+                  <Button size="sm" color={'cyan'} onClick={() => (handleProduct(product), toastHandlerSucces())}>
+                     <AiOutlineShoppingCart size={'80%'} />
+                  </Button>
+               </Button.Group>
             ) : (
                <Button
                   radius="md"
                   style={{ flex: 1 }}
-                  onClick={() => removeProduct(product)}
+                  onClick={() => (removeProduct(product), toastHandlerRemove())}
                   color="dark"
                   variant="light"
                >

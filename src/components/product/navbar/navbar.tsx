@@ -6,7 +6,6 @@ const Navbar = () => {
    const navigate = useNavigate();
    const cartItems = useAppSelector((state) => state.products.cartProduct.length);
 
-   console.log(cartItems);
    return (
       <div className="container">
          <div className="navbar">

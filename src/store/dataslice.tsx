@@ -7,7 +7,15 @@ interface iState {
    cartProduct: Product[];
    storageProducts: Store;
    categories: any;
+   product: Product;
 }
+
+const fetchSingleProduct = createAsyncThunk('single product', async (num: string | undefined) => {
+   const response = await instance({
+      url: `${num}`,
+   });
+   return response.data;
+});
 
 const fetchMarketProducts = createAsyncThunk('market products', async (num: number) => {
    const response = await instance({
@@ -42,6 +50,19 @@ const initialState: iState = {
    cartProduct: [],
    storageProducts: { limit: 0, products: [], skip: 0, total: 0 },
    categories: [],
+   product: {
+      brand: '',
+      category: '',
+      description: '',
+      discountPercentage: 0,
+      id: 1,
+      images: [''],
+      price: 0,
+      rating: 0,
+      stock: 0,
+      thumbnail: '',
+      title: '',
+   },
 };
 
 export const dataSlice = createSlice({
@@ -76,9 +97,12 @@ export const dataSlice = createSlice({
       builder.addCase(fetchCategoryProducts.fulfilled, (state, action) => {
          state.storageProducts = action.payload;
       });
+      builder.addCase(fetchSingleProduct.fulfilled, (state, action) => {
+         state.product = action.payload;
+      });
    },
 });
 
-export { fetchCategoryProducts, fetchMarketProducts, fetchProductCategories, fetchStorageProducts };
+export { fetchCategoryProducts, fetchMarketProducts, fetchProductCategories, fetchStorageProducts, fetchSingleProduct };
 export const dataAction = dataSlice.actions;
 export default dataSlice;
