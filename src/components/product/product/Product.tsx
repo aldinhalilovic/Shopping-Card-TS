@@ -67,7 +67,7 @@ export default function ProductCard(props: ProductCardProps) {
                <Text size="lg" weight={500} style={{ width: '170px', lineHeight: '20px' }}>
                   {product.title}
                </Text>
-               <Badge size="sm" color="dark">
+               <Badge size="sm" color="cyan">
                   -{product.discountPercentage}%
                </Badge>
             </Group>
@@ -86,32 +86,28 @@ export default function ProductCard(props: ProductCardProps) {
          </Card.Section>
 
          <Group mt="xs">
-            {!isInCart ? (
-               <Button.Group w={'100%'}>
-                  <Button
-                     radius="md"
-                     size="sm"
-                     style={{ flex: 1 }}
-                     onClick={() => navigate(`/detail/${product.id}`)}
-                     color="dark"
-                  >
-                     See details
-                  </Button>
-                  <Button size="sm" color={'cyan'} onClick={() => (handleProduct(product), toastHandlerSucces())}>
-                     <AiOutlineShoppingCart size={'80%'} />
-                  </Button>
-               </Button.Group>
-            ) : (
+            <Button.Group w={'100%'}>
                <Button
                   radius="md"
+                  size="sm"
                   style={{ flex: 1 }}
-                  onClick={() => (removeProduct(product), toastHandlerRemove())}
+                  onClick={() => navigate(`/detail/${product.id}`)}
                   color="dark"
-                  variant="light"
                >
-                  Remove from cart
+                  See details
                </Button>
-            )}
+               <Button
+                  size="sm"
+                  color={!isInCart ? 'cyan' : 'pink'}
+                  onClick={
+                     !isInCart
+                        ? () => (handleProduct(product), toastHandlerSucces())
+                        : () => (removeProduct(product), toastHandlerRemove())
+                  }
+               >
+                  <AiOutlineShoppingCart size={'80%'} />
+               </Button>
+            </Button.Group>
          </Group>
       </Card>
    );

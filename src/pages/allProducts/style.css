@@ -54,6 +54,7 @@
     position: sticky;
     top: 90%;
     left: 95%;
+    z-index: 2;
 }
 
 .page-content{

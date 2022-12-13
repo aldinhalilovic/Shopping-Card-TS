@@ -15,8 +15,8 @@ const Home: React.FC = () => {
    return (
       <div className="home">
          <div className="flex-column">
-            <h1>Welcome to store!</h1>
-            <h1>Pick your path</h1>
+            <h3>Welcome to store!</h3>
+            <h3>Pick your path</h3>
          </div>
          <div className="home-content">
             <div className="flex home-markets">
