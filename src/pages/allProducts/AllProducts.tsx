@@ -1,5 +1,5 @@
-import { Button, MultiSelect, TextInput } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
+import { Button, MultiSelect, TextInput } from '@mantine/core';
 import ProductCard from '../../components/product/product/Product';
 import { Product } from '../../models/models';
 import { dataAction, fetchCategoryProducts, fetchProductCategories, fetchStorageProducts } from '../../store/dataslice';

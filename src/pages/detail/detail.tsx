@@ -1,9 +1,10 @@
-import { Carousel } from '@mantine/carousel';
-import { Image, Collapse, Rating } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
+import { Carousel } from '@mantine/carousel';
+import { Image, Collapse, Rating, Button } from '@mantine/core';
 import { useParams } from 'react-router-dom';
 import { fetchSingleProduct } from '../../store/dataslice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import './detail.css';
 
 const Detail = () => {
    const { id } = useParams();
@@ -15,53 +16,23 @@ const Detail = () => {
       dispatch(fetchSingleProduct(id));
    }, []);
 
-   const tabel = {
-      width: '90%',
-      height: '5%',
-      borderBottom: '2px solid #075f7a ',
-      padding: '10px 5px',
-      fontSize: '19px',
-      fontFamily: 'sans-serif',
-      fontWeight: '700',
-      color: 'black',
+   const indicator = {
+      indicator: {
+         height: '10px',
+         width: '10px',
+         borderRadius: '50%',
+      },
    };
 
    return (
-      <div
-         style={{
-            minHeight: '90vh',
-            display: 'flex',
-            alignItems: 'center',
-         }}
-      >
-         <div
-            style={{
-               width: '50%',
-               display: 'flex',
-               justifyContent: 'center',
-               alignItems: 'center',
-            }}
-         >
-            <div
-               style={{
-                  height: '70%',
-                  width: '40%',
-                  overflow: 'hidden',
-                  border: '1px solid transparent',
-                  borderRadius: '10px',
-               }}
-            >
+      <div className="detail">
+         <div className="detail-slick">
+            <div className="detail-slick-carousel">
                <Carousel
                   sx={{
                      maxWidth: 320,
                   }}
-                  styles={{
-                     indicator: {
-                        height: '10px',
-                        width: '10px',
-                        borderRadius: '50%',
-                     },
-                  }}
+                  styles={indicator}
                   mx="auto"
                   height={450}
                   dragFree
@@ -78,30 +49,27 @@ const Detail = () => {
                </Carousel>
             </div>
          </div>
-         <div
-            style={{
-               width: '40%',
-               display: 'flex',
-               flexDirection: 'column',
-               justifyContent: 'center',
-               alignItems: 'center',
-               backgroundColor: 'whitesmoke',
-               borderRadius: '15px',
-            }}
-         >
-            <div style={tabel}>ID: {product.id}</div>
-            <div style={tabel}>Category: {product.category}</div>
-            <div style={tabel}>Brand: {product.brand}</div>
-            <div style={tabel}>Current Price: {product.price}€</div>
-            <div style={tabel}>Discount: {product.discountPercentage}%</div>
-            <div style={tabel}>
+         <div className="detail-details">
+            <div className="detail-details-title">ID: {product.id}</div>
+            <div className="detail-details-title">Category: {product.category}</div>
+            <div className="detail-details-title">Brand: {product.brand}</div>
+            <div className="detail-details-title">Current Price: {product.price}€</div>
+            <div className="detail-details-title">Discount: {product.discountPercentage}%</div>
+            <div className="detail-details-title">
                Rating: {product.rating}%
                <Rating fractions={Number(product.rating.toFixed())} defaultValue={product.rating} readOnly />
             </div>
-            <div style={tabel}>Products left: {product.stock}</div>
-            <div style={tabel}>
-               <button onClick={() => setOpened((prev) => !prev)}>Description</button>
-               <Collapse in={opened}>{product.description}</Collapse>
+            <div className="detail-details-title">Products left: {product.stock}</div>
+            <div className="detail-details-title">
+               <Button onClick={() => setOpened((prev) => !prev)} variant={'filled'} color={'dark'}>
+                  Description
+               </Button>
+               <Collapse in={opened}>
+                  <p className="product-description">{product.description}</p>
+               </Collapse>
+            </div>
+            <div className="button-cart">
+               <Button>Add to cart</Button>
             </div>
          </div>
       </div>

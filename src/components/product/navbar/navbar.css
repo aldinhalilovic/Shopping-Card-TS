@@ -27,7 +27,7 @@
 .activeStyle {
     color: white;
     font-size: 10px;
-        text-decoration: none;
+    text-decoration: none;
     text-shadow: 3px 4px 9px rgba(0, 0, 0, 0.8);
     font-weight: 900;
 }
@@ -43,4 +43,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+.badge{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: -5%;
+    left: 90%;
+    border-radius: 50%;
+    color: black;
+            
 }

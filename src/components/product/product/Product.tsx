@@ -9,7 +9,7 @@ const useStyles = createStyles((theme) => ({
       width: '300px',
       margin: '20px',
       boxShadow: ' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px',
-      fontFamily: 'revert',
+      fontFamily: "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif",
    },
 
    section: {
@@ -19,21 +19,25 @@ const useStyles = createStyles((theme) => ({
       paddingBottom: theme.spacing.md,
       height: '120px',
       overflowY: 'hidden',
+      fontFamily: "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif",
    },
 
    title: {
       width: '260px',
       height: '60px',
+      fontFamily: "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif",
    },
 
    like: {
       color: theme.colors.red[6],
+      fontFamily: "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif",
    },
 
    label: {
       textTransform: 'uppercase',
       fontSize: theme.fontSizes.xs,
       fontWeight: 700,
+      fontFamily: "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif",
    },
 }));
 type ProductCardProps = {

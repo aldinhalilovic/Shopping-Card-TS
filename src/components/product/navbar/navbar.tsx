@@ -25,22 +25,7 @@ const Navbar = () => {
                   >
                      <h1>Cart</h1>
                   </NavLink>
-                  {cartItems !== 0 && (
-                     <h5
-                        style={{
-                           width: '15px',
-                           height: '15px',
-                           position: 'absolute',
-                           top: '-5%',
-                           left: '90%',
-                           backgroundColor: 'white',
-                           borderRadius: '50%',
-                        }}
-                        className="flex"
-                     >
-                        {cartItems}
-                     </h5>
-                  )}
+                  {cartItems !== 0 && <h5 className="flex badge">{cartItems}</h5>}
                </div>
                <NavLink
                   to="/products"
